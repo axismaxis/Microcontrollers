@@ -1,0 +1,667 @@
+
+433MHzReceiverSender.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  000003e2  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000036e  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000000f  00800100  00800100  000003e2  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000003e2  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000414  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000050  00000000  00000000  00000450  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000ba5  00000000  00000000  000004a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000008f8  00000000  00000000  00001045  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000085b  00000000  00000000  0000193d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000100  00000000  00000000  00002198  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00011865  00000000  00000000  00002298  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000339  00000000  00000000  00013afd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000040  00000000  00000000  00013e36  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_macro  0000037f  00000000  00000000  00013e76  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	45 c0       	rjmp	.+138    	; 0x8c <__ctors_end>
+   2:	00 00       	nop
+   4:	54 c0       	rjmp	.+168    	; 0xae <__vector_1>
+   6:	00 00       	nop
+   8:	51 c0       	rjmp	.+162    	; 0xac <__bad_interrupt>
+   a:	00 00       	nop
+   c:	4f c0       	rjmp	.+158    	; 0xac <__bad_interrupt>
+   e:	00 00       	nop
+  10:	4d c0       	rjmp	.+154    	; 0xac <__bad_interrupt>
+  12:	00 00       	nop
+  14:	4b c0       	rjmp	.+150    	; 0xac <__bad_interrupt>
+  16:	00 00       	nop
+  18:	49 c0       	rjmp	.+146    	; 0xac <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	47 c0       	rjmp	.+142    	; 0xac <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	45 c0       	rjmp	.+138    	; 0xac <__bad_interrupt>
+  22:	00 00       	nop
+  24:	43 c0       	rjmp	.+134    	; 0xac <__bad_interrupt>
+  26:	00 00       	nop
+  28:	41 c0       	rjmp	.+130    	; 0xac <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	3f c0       	rjmp	.+126    	; 0xac <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	3d c0       	rjmp	.+122    	; 0xac <__bad_interrupt>
+  32:	00 00       	nop
+  34:	3b c0       	rjmp	.+118    	; 0xac <__bad_interrupt>
+  36:	00 00       	nop
+  38:	39 c0       	rjmp	.+114    	; 0xac <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	37 c0       	rjmp	.+110    	; 0xac <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	35 c0       	rjmp	.+106    	; 0xac <__bad_interrupt>
+  42:	00 00       	nop
+  44:	33 c0       	rjmp	.+102    	; 0xac <__bad_interrupt>
+  46:	00 00       	nop
+  48:	31 c0       	rjmp	.+98     	; 0xac <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	2f c0       	rjmp	.+94     	; 0xac <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	2d c0       	rjmp	.+90     	; 0xac <__bad_interrupt>
+  52:	00 00       	nop
+  54:	2b c0       	rjmp	.+86     	; 0xac <__bad_interrupt>
+  56:	00 00       	nop
+  58:	29 c0       	rjmp	.+82     	; 0xac <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	27 c0       	rjmp	.+78     	; 0xac <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	25 c0       	rjmp	.+74     	; 0xac <__bad_interrupt>
+  62:	00 00       	nop
+  64:	23 c0       	rjmp	.+70     	; 0xac <__bad_interrupt>
+  66:	00 00       	nop
+  68:	21 c0       	rjmp	.+66     	; 0xac <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	1f c0       	rjmp	.+62     	; 0xac <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	1d c0       	rjmp	.+58     	; 0xac <__bad_interrupt>
+  72:	00 00       	nop
+  74:	1b c0       	rjmp	.+54     	; 0xac <__bad_interrupt>
+  76:	00 00       	nop
+  78:	19 c0       	rjmp	.+50     	; 0xac <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	17 c0       	rjmp	.+46     	; 0xac <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	15 c0       	rjmp	.+42     	; 0xac <__bad_interrupt>
+  82:	00 00       	nop
+  84:	13 c0       	rjmp	.+38     	; 0xac <__bad_interrupt>
+  86:	00 00       	nop
+  88:	11 c0       	rjmp	.+34     	; 0xac <__bad_interrupt>
+	...
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_clear_bss>:
+  98:	21 e0       	ldi	r18, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	01 c0       	rjmp	.+2      	; 0xa2 <.do_clear_bss_start>
+
+000000a0 <.do_clear_bss_loop>:
+  a0:	1d 92       	st	X+, r1
+
+000000a2 <.do_clear_bss_start>:
+  a2:	af 30       	cpi	r26, 0x0F	; 15
+  a4:	b2 07       	cpc	r27, r18
+  a6:	e1 f7       	brne	.-8      	; 0xa0 <.do_clear_bss_loop>
+  a8:	52 d1       	rcall	.+676    	; 0x34e <main>
+  aa:	5f c1       	rjmp	.+702    	; 0x36a <_exit>
+
+000000ac <__bad_interrupt>:
+  ac:	a9 cf       	rjmp	.-174    	; 0x0 <__vectors>
+
+000000ae <__vector_1>:
+		delayms(1);
+	}
+}
+
+ISR( INT0_vect )
+{
+  ae:	1f 92       	push	r1
+  b0:	0f 92       	push	r0
+  b2:	0f b6       	in	r0, 0x3f	; 63
+  b4:	0f 92       	push	r0
+  b6:	11 24       	eor	r1, r1
+  b8:	0f 93       	push	r16
+  ba:	1f 93       	push	r17
+  bc:	2f 93       	push	r18
+  be:	3f 93       	push	r19
+  c0:	4f 93       	push	r20
+  c2:	5f 93       	push	r21
+  c4:	6f 93       	push	r22
+  c6:	7f 93       	push	r23
+  c8:	8f 93       	push	r24
+  ca:	9f 93       	push	r25
+  cc:	af 93       	push	r26
+  ce:	bf 93       	push	r27
+	//Change interrupt for rising edge/falling edge
+	if(EICRA == 0x02)
+  d0:	80 91 6a 00 	lds	r24, 0x006A	; 0x80006a <__TEXT_REGION_LENGTH__+0x7e006a>
+  d4:	82 30       	cpi	r24, 0x02	; 2
+  d6:	81 f4       	brne	.+32     	; 0xf8 <__vector_1+0x4a>
+	{
+		//On falling edge
+		highTime = TCNT2;
+  d8:	84 b5       	in	r24, 0x24	; 36
+  da:	90 e0       	ldi	r25, 0x00	; 0
+  dc:	a0 e0       	ldi	r26, 0x00	; 0
+  de:	b0 e0       	ldi	r27, 0x00	; 0
+  e0:	80 93 07 01 	sts	0x0107, r24	; 0x800107 <highTime>
+  e4:	90 93 08 01 	sts	0x0108, r25	; 0x800108 <highTime+0x1>
+  e8:	a0 93 09 01 	sts	0x0109, r26	; 0x800109 <highTime+0x2>
+  ec:	b0 93 0a 01 	sts	0x010A, r27	; 0x80010a <highTime+0x3>
+
+		//Change interrupt mode to rising edge
+		EICRA = 0x03;
+  f0:	83 e0       	ldi	r24, 0x03	; 3
+  f2:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <__TEXT_REGION_LENGTH__+0x7e006a>
+  f6:	b2 c0       	rjmp	.+356    	; 0x25c <__vector_1+0x1ae>
+	}
+	else
+	{
+		//On rising edge
+		if(!startBitFound)
+  f8:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <startBitFound>
+  fc:	90 91 03 01 	lds	r25, 0x0103	; 0x800103 <startBitFound+0x1>
+ 100:	89 2b       	or	r24, r25
+ 102:	99 f4       	brne	.+38     	; 0x12a <__vector_1+0x7c>
+		{
+			lowTime = TCNT2;
+ 104:	84 b5       	in	r24, 0x24	; 36
+ 106:	90 e0       	ldi	r25, 0x00	; 0
+ 108:	a0 e0       	ldi	r26, 0x00	; 0
+ 10a:	b0 e0       	ldi	r27, 0x00	; 0
+			if(lowTime > 6 && lowTime < 14)
+ 10c:	07 97       	sbiw	r24, 0x07	; 7
+ 10e:	a1 09       	sbc	r26, r1
+ 110:	b1 09       	sbc	r27, r1
+ 112:	07 97       	sbiw	r24, 0x07	; 7
+ 114:	a1 05       	cpc	r26, r1
+ 116:	b1 05       	cpc	r27, r1
+ 118:	08 f0       	brcs	.+2      	; 0x11c <__vector_1+0x6e>
+ 11a:	95 c0       	rjmp	.+298    	; 0x246 <__vector_1+0x198>
+			{
+				startBitFound = 1;				
+ 11c:	81 e0       	ldi	r24, 0x01	; 1
+ 11e:	90 e0       	ldi	r25, 0x00	; 0
+ 120:	90 93 03 01 	sts	0x0103, r25	; 0x800103 <startBitFound+0x1>
+ 124:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <startBitFound>
+ 128:	8e c0       	rjmp	.+284    	; 0x246 <__vector_1+0x198>
+			}
+		}
+		else
+		{
+			lowTime = TCNT2;
+ 12a:	84 b5       	in	r24, 0x24	; 36
+ 12c:	90 e0       	ldi	r25, 0x00	; 0
+ 12e:	a0 e0       	ldi	r26, 0x00	; 0
+ 130:	b0 e0       	ldi	r27, 0x00	; 0
+ 132:	80 93 0b 01 	sts	0x010B, r24	; 0x80010b <lowTime>
+ 136:	90 93 0c 01 	sts	0x010C, r25	; 0x80010c <lowTime+0x1>
+ 13a:	a0 93 0d 01 	sts	0x010D, r26	; 0x80010d <lowTime+0x2>
+ 13e:	b0 93 0e 01 	sts	0x010E, r27	; 0x80010e <lowTime+0x3>
+			if(lowTime > 0 && lowTime < 3)
+ 142:	01 97       	sbiw	r24, 0x01	; 1
+ 144:	a1 09       	sbc	r26, r1
+ 146:	b1 09       	sbc	r27, r1
+ 148:	02 97       	sbiw	r24, 0x02	; 2
+ 14a:	a1 05       	cpc	r26, r1
+ 14c:	b1 05       	cpc	r27, r1
+ 14e:	08 f0       	brcs	.+2      	; 0x152 <__vector_1+0xa4>
+ 150:	70 c0       	rjmp	.+224    	; 0x232 <__vector_1+0x184>
+			{
+				if(startBitFound && edges < 9)
+ 152:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <edges>
+ 156:	90 91 06 01 	lds	r25, 0x0106	; 0x800106 <edges+0x1>
+ 15a:	89 30       	cpi	r24, 0x09	; 9
+ 15c:	91 05       	cpc	r25, r1
+ 15e:	0c f0       	brlt	.+2      	; 0x162 <__vector_1+0xb4>
+ 160:	72 c0       	rjmp	.+228    	; 0x246 <__vector_1+0x198>
+				{
+					highTime = TCNT2;
+ 162:	44 b5       	in	r20, 0x24	; 36
+ 164:	50 e0       	ldi	r21, 0x00	; 0
+ 166:	60 e0       	ldi	r22, 0x00	; 0
+ 168:	70 e0       	ldi	r23, 0x00	; 0
+					if(highTime > 1 && highTime < 5)
+ 16a:	8a 01       	movw	r16, r20
+ 16c:	9b 01       	movw	r18, r22
+ 16e:	02 50       	subi	r16, 0x02	; 2
+ 170:	11 09       	sbc	r17, r1
+ 172:	21 09       	sbc	r18, r1
+ 174:	31 09       	sbc	r19, r1
+ 176:	03 30       	cpi	r16, 0x03	; 3
+ 178:	11 05       	cpc	r17, r1
+ 17a:	21 05       	cpc	r18, r1
+ 17c:	31 05       	cpc	r19, r1
+ 17e:	68 f4       	brcc	.+26     	; 0x19a <__vector_1+0xec>
+					{
+						if(receivedData == 0)
+ 180:	20 91 04 01 	lds	r18, 0x0104	; 0x800104 <receivedData>
+ 184:	22 23       	and	r18, r18
+ 186:	19 f0       	breq	.+6      	; 0x18e <__vector_1+0xe0>
+						{
+							//Data should be 0
+						}
+						else
+						{
+							receivedData = receivedData << 1;
+ 188:	22 0f       	add	r18, r18
+ 18a:	20 93 04 01 	sts	0x0104, r18	; 0x800104 <receivedData>
+						}
+						edges++;
+ 18e:	01 96       	adiw	r24, 0x01	; 1
+ 190:	90 93 06 01 	sts	0x0106, r25	; 0x800106 <edges+0x1>
+ 194:	80 93 05 01 	sts	0x0105, r24	; 0x800105 <edges>
+ 198:	26 c0       	rjmp	.+76     	; 0x1e6 <__vector_1+0x138>
+					}
+					else if(highTime > 5 && highTime < 9)
+ 19a:	46 50       	subi	r20, 0x06	; 6
+ 19c:	51 09       	sbc	r21, r1
+ 19e:	61 09       	sbc	r22, r1
+ 1a0:	71 09       	sbc	r23, r1
+ 1a2:	43 30       	cpi	r20, 0x03	; 3
+ 1a4:	51 05       	cpc	r21, r1
+ 1a6:	61 05       	cpc	r22, r1
+ 1a8:	71 05       	cpc	r23, r1
+ 1aa:	90 f4       	brcc	.+36     	; 0x1d0 <__vector_1+0x122>
+					{
+						if(receivedData == 0)
+ 1ac:	20 91 04 01 	lds	r18, 0x0104	; 0x800104 <receivedData>
+ 1b0:	21 11       	cpse	r18, r1
+ 1b2:	04 c0       	rjmp	.+8      	; 0x1bc <__vector_1+0x10e>
+						{
+							receivedData = 1;
+ 1b4:	21 e0       	ldi	r18, 0x01	; 1
+ 1b6:	20 93 04 01 	sts	0x0104, r18	; 0x800104 <receivedData>
+ 1ba:	04 c0       	rjmp	.+8      	; 0x1c4 <__vector_1+0x116>
+						}
+						else
+						{
+							receivedData = receivedData << 1;
+							receivedData |= 1;
+ 1bc:	22 0f       	add	r18, r18
+ 1be:	21 60       	ori	r18, 0x01	; 1
+ 1c0:	20 93 04 01 	sts	0x0104, r18	; 0x800104 <receivedData>
+						}
+						edges++;
+ 1c4:	01 96       	adiw	r24, 0x01	; 1
+ 1c6:	90 93 06 01 	sts	0x0106, r25	; 0x800106 <edges+0x1>
+ 1ca:	80 93 05 01 	sts	0x0105, r24	; 0x800105 <edges>
+ 1ce:	0b c0       	rjmp	.+22     	; 0x1e6 <__vector_1+0x138>
+					}
+					else
+					{
+						//Corrupt bit found
+						receivedData = 0;
+ 1d0:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <receivedData>
+						startBitFound = 0;
+ 1d4:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <startBitFound+0x1>
+ 1d8:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <startBitFound>
+						edges = 0;
+ 1dc:	10 92 06 01 	sts	0x0106, r1	; 0x800106 <edges+0x1>
+ 1e0:	10 92 05 01 	sts	0x0105, r1	; 0x800105 <edges>
+ 1e4:	30 c0       	rjmp	.+96     	; 0x246 <__vector_1+0x198>
+					}
+					
+					if(startBitFound == 1 && edges == 8)
+ 1e6:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <startBitFound>
+ 1ea:	90 91 03 01 	lds	r25, 0x0103	; 0x800103 <startBitFound+0x1>
+ 1ee:	01 97       	sbiw	r24, 0x01	; 1
+ 1f0:	51 f5       	brne	.+84     	; 0x246 <__vector_1+0x198>
+ 1f2:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <edges>
+ 1f6:	90 91 06 01 	lds	r25, 0x0106	; 0x800106 <edges+0x1>
+ 1fa:	08 97       	sbiw	r24, 0x08	; 8
+ 1fc:	21 f5       	brne	.+72     	; 0x246 <__vector_1+0x198>
+					{
+						if(!firstTimeFound)
+ 1fe:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 202:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+ 206:	89 2b       	or	r24, r25
+ 208:	59 f4       	brne	.+22     	; 0x220 <__vector_1+0x172>
+						{
+							PORTE = receivedData;
+ 20a:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <receivedData>
+ 20e:	83 b9       	out	0x03, r24	; 3
+							PORTA = 0xFF;
+ 210:	8f ef       	ldi	r24, 0xFF	; 255
+ 212:	8b bb       	out	0x1b, r24	; 27
+							firstTimeFound = 1;
+ 214:	81 e0       	ldi	r24, 0x01	; 1
+ 216:	90 e0       	ldi	r25, 0x00	; 0
+ 218:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 21c:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+						}
+						
+						startBitFound = 0;
+ 220:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <startBitFound+0x1>
+ 224:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <startBitFound>
+						edges = 0;
+ 228:	10 92 06 01 	sts	0x0106, r1	; 0x800106 <edges+0x1>
+ 22c:	10 92 05 01 	sts	0x0105, r1	; 0x800105 <edges>
+ 230:	0a c0       	rjmp	.+20     	; 0x246 <__vector_1+0x198>
+					}
+				}
+			}
+			else
+			{
+				startBitFound = 0;
+ 232:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <startBitFound+0x1>
+ 236:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <startBitFound>
+				edges = 0;
+ 23a:	10 92 06 01 	sts	0x0106, r1	; 0x800106 <edges+0x1>
+ 23e:	10 92 05 01 	sts	0x0105, r1	; 0x800105 <edges>
+				receivedData = 0;
+ 242:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <receivedData>
+			}
+		}
+
+		//Reset high timer
+		highTime = 0;
+ 246:	10 92 07 01 	sts	0x0107, r1	; 0x800107 <highTime>
+ 24a:	10 92 08 01 	sts	0x0108, r1	; 0x800108 <highTime+0x1>
+ 24e:	10 92 09 01 	sts	0x0109, r1	; 0x800109 <highTime+0x2>
+ 252:	10 92 0a 01 	sts	0x010A, r1	; 0x80010a <highTime+0x3>
+
+		//Change interrupt mode to falling edge
+		EICRA = 0x02;
+ 256:	82 e0       	ldi	r24, 0x02	; 2
+ 258:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <__TEXT_REGION_LENGTH__+0x7e006a>
+	}
+
+	
+	lowTime = 0;
+ 25c:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <lowTime>
+ 260:	10 92 0c 01 	sts	0x010C, r1	; 0x80010c <lowTime+0x1>
+ 264:	10 92 0d 01 	sts	0x010D, r1	; 0x80010d <lowTime+0x2>
+ 268:	10 92 0e 01 	sts	0x010E, r1	; 0x80010e <lowTime+0x3>
+
+	//Reset timer to 0
+	TCNT2 = 0;
+ 26c:	14 bc       	out	0x24, r1	; 36
+}
+ 26e:	bf 91       	pop	r27
+ 270:	af 91       	pop	r26
+ 272:	9f 91       	pop	r25
+ 274:	8f 91       	pop	r24
+ 276:	7f 91       	pop	r23
+ 278:	6f 91       	pop	r22
+ 27a:	5f 91       	pop	r21
+ 27c:	4f 91       	pop	r20
+ 27e:	3f 91       	pop	r19
+ 280:	2f 91       	pop	r18
+ 282:	1f 91       	pop	r17
+ 284:	0f 91       	pop	r16
+ 286:	0f 90       	pop	r0
+ 288:	0f be       	out	0x3f, r0	; 63
+ 28a:	0f 90       	pop	r0
+ 28c:	1f 90       	pop	r1
+ 28e:	18 95       	reti
+
+00000290 <InitInterupts>:
+
+void InitInterupts(void)
+{
+	TCCR2 |= (1 << CS22);
+ 290:	85 b5       	in	r24, 0x25	; 37
+ 292:	84 60       	ori	r24, 0x04	; 4
+ 294:	85 bd       	out	0x25, r24	; 37
+	TCNT2 = 0;
+ 296:	14 bc       	out	0x24, r1	; 36
+
+	EICRA |= 0x03; // EX0, EX1: rising edge
+ 298:	ea e6       	ldi	r30, 0x6A	; 106
+ 29a:	f0 e0       	ldi	r31, 0x00	; 0
+ 29c:	80 81       	ld	r24, Z
+ 29e:	83 60       	ori	r24, 0x03	; 3
+ 2a0:	80 83       	st	Z, r24
+	EIMSK |= 0x01; // enable intrpt EX0, EX1
+ 2a2:	89 b7       	in	r24, 0x39	; 57
+ 2a4:	81 60       	ori	r24, 0x01	; 1
+ 2a6:	89 bf       	out	0x39, r24	; 57
+	sei();
+ 2a8:	78 94       	sei
+ 2aa:	08 95       	ret
+
+000002ac <delayms>:
+}
+
+void delayms(int t)//delay in ms
+{
+	int i;
+	for(i=0;i<t;i++)
+ 2ac:	18 16       	cp	r1, r24
+ 2ae:	19 06       	cpc	r1, r25
+ 2b0:	6c f4       	brge	.+26     	; 0x2cc <delayms+0x20>
+ 2b2:	20 e0       	ldi	r18, 0x00	; 0
+ 2b4:	30 e0       	ldi	r19, 0x00	; 0
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2b6:	ef ec       	ldi	r30, 0xCF	; 207
+ 2b8:	f7 e0       	ldi	r31, 0x07	; 7
+ 2ba:	31 97       	sbiw	r30, 0x01	; 1
+ 2bc:	f1 f7       	brne	.-4      	; 0x2ba <delayms+0xe>
+ 2be:	00 c0       	rjmp	.+0      	; 0x2c0 <delayms+0x14>
+ 2c0:	00 00       	nop
+ 2c2:	2f 5f       	subi	r18, 0xFF	; 255
+ 2c4:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2c6:	82 17       	cp	r24, r18
+ 2c8:	93 07       	cpc	r25, r19
+ 2ca:	a9 f7       	brne	.-22     	; 0x2b6 <delayms+0xa>
+ 2cc:	08 95       	ret
+
+000002ce <delayus>:
+
+
+void delayus(int t)//delay in us
+{
+	int i;
+	for(i=0;i<t;i++)
+ 2ce:	18 16       	cp	r1, r24
+ 2d0:	19 06       	cpc	r1, r25
+ 2d2:	5c f4       	brge	.+22     	; 0x2ea <delayus+0x1c>
+ 2d4:	20 e0       	ldi	r18, 0x00	; 0
+ 2d6:	30 e0       	ldi	r19, 0x00	; 0
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2d8:	42 e0       	ldi	r20, 0x02	; 2
+ 2da:	4a 95       	dec	r20
+ 2dc:	f1 f7       	brne	.-4      	; 0x2da <delayus+0xc>
+ 2de:	00 c0       	rjmp	.+0      	; 0x2e0 <delayus+0x12>
+ 2e0:	2f 5f       	subi	r18, 0xFF	; 255
+ 2e2:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2e4:	82 17       	cp	r24, r18
+ 2e6:	93 07       	cpc	r25, r19
+ 2e8:	b9 f7       	brne	.-18     	; 0x2d8 <delayus+0xa>
+ 2ea:	08 95       	ret
+
+000002ec <send_timon_bytes>:
+	}
+}
+
+//send_timon_bytes(0b11001111);
+void send_timon_bytes(unsigned char data)
+{
+ 2ec:	df 92       	push	r13
+ 2ee:	ef 92       	push	r14
+ 2f0:	ff 92       	push	r15
+ 2f2:	0f 93       	push	r16
+ 2f4:	1f 93       	push	r17
+ 2f6:	cf 93       	push	r28
+ 2f8:	df 93       	push	r29
+ 2fa:	d8 2f       	mov	r29, r24
+	unsigned char tbit;
+	int delayTime = 0;
+
+	// make 250uS start bit first
+	PORTB = 0x0;
+ 2fc:	18 ba       	out	0x18, r1	; 24
+	delayus(100);
+ 2fe:	84 e6       	ldi	r24, 0x64	; 100
+ 300:	90 e0       	ldi	r25, 0x00	; 0
+ 302:	e5 df       	rcall	.-54     	; 0x2ce <delayus>
+ 304:	c8 e0       	ldi	r28, 0x08	; 8
+
+	// now loop and send 8 bits
+	for(tbit=0; tbit<8; tbit++)
+	{
+		delayTime = 0;
+		PORTB = 0xFF;
+ 306:	1f ef       	ldi	r17, 0xFF	; 255
+	//delayus(500);     
+
+	// now loop and send 8 bits
+	for(tbit=0; tbit<8; tbit++)
+	{
+		delayTime = 0;
+ 308:	f1 2c       	mov	r15, r1
+ 30a:	00 e0       	ldi	r16, 0x00	; 0
+		PORTB = 0xFF;
+		if((data & 0b10000000))
+		{
+			delayTime += 100;
+ 30c:	0f 2e       	mov	r0, r31
+ 30e:	f4 e6       	ldi	r31, 0x64	; 100
+ 310:	df 2e       	mov	r13, r31
+ 312:	f0 2d       	mov	r31, r0
+ 314:	e1 2c       	mov	r14, r1
+
+	// now loop and send 8 bits
+	for(tbit=0; tbit<8; tbit++)
+	{
+		delayTime = 0;
+		PORTB = 0xFF;
+ 316:	18 bb       	out	0x18, r17	; 24
+		if((data & 0b10000000))
+ 318:	dd 23       	and	r29, r29
+ 31a:	1c f4       	brge	.+6      	; 0x322 <send_timon_bytes+0x36>
+		{
+			delayTime += 100;
+ 31c:	8d 2d       	mov	r24, r13
+ 31e:	9e 2d       	mov	r25, r14
+ 320:	02 c0       	rjmp	.+4      	; 0x326 <send_timon_bytes+0x3a>
+	//delayus(500);     
+
+	// now loop and send 8 bits
+	for(tbit=0; tbit<8; tbit++)
+	{
+		delayTime = 0;
+ 322:	8f 2d       	mov	r24, r15
+ 324:	90 2f       	mov	r25, r16
+		if((data & 0b10000000))
+		{
+			delayTime += 100;
+		}
+		delayTime += 100;
+		delayus(delayTime);
+ 326:	8c 59       	subi	r24, 0x9C	; 156
+ 328:	9f 4f       	sbci	r25, 0xFF	; 255
+ 32a:	d1 df       	rcall	.-94     	; 0x2ce <delayus>
+
+		PORTB = 0x0;
+		delayus(50);
+ 32c:	18 ba       	out	0x18, r1	; 24
+ 32e:	82 e3       	ldi	r24, 0x32	; 50
+ 330:	90 e0       	ldi	r25, 0x00	; 0
+
+
+		data = data << 1; 
+ 332:	cd df       	rcall	.-102    	; 0x2ce <delayus>
+ 334:	dd 0f       	add	r29, r29
+	      
+	//PORTB = 0x00;
+	//delayus(500);     
+
+	// now loop and send 8 bits
+	for(tbit=0; tbit<8; tbit++)
+ 336:	c1 50       	subi	r28, 0x01	; 1
+		delayus(50);
+
+
+		data = data << 1; 
+	}
+	PORTB = 0xFF;
+ 338:	71 f7       	brne	.-36     	; 0x316 <send_timon_bytes+0x2a>
+ 33a:	8f ef       	ldi	r24, 0xFF	; 255
+}
+ 33c:	88 bb       	out	0x18, r24	; 24
+ 33e:	df 91       	pop	r29
+ 340:	cf 91       	pop	r28
+ 342:	1f 91       	pop	r17
+ 344:	0f 91       	pop	r16
+ 346:	ff 90       	pop	r15
+ 348:	ef 90       	pop	r14
+ 34a:	df 90       	pop	r13
+ 34c:	08 95       	ret
+
+0000034e <main>:
+void InitInterupts(void);
+
+int main(void)
+{
+	/* Set all PORTB to output*/
+	DDRA = 0xFF;
+ 34e:	8f ef       	ldi	r24, 0xFF	; 255
+ 350:	8a bb       	out	0x1a, r24	; 26
+	DDRB = 0xFF;
+ 352:	87 bb       	out	0x17, r24	; 23
+	DDRD = 0x0;
+ 354:	11 ba       	out	0x11, r1	; 17
+	DDRE = 0xFF;
+ 356:	82 b9       	out	0x02, r24	; 2
+	
+	PORTA = 0x0;
+ 358:	1b ba       	out	0x1b, r1	; 27
+	}
+	
+	/*Start of infinite loop*/
+	while(1)
+	{
+		send_timon_bytes(0b11001101);
+ 35a:	13 b8       	out	0x03, r1	; 3
+
+		delayms(1);
+ 35c:	99 df       	rcall	.-206    	; 0x290 <InitInterupts>
+ 35e:	8d ec       	ldi	r24, 0xCD	; 205
+ 360:	c5 df       	rcall	.-118    	; 0x2ec <send_timon_bytes>
+ 362:	81 e0       	ldi	r24, 0x01	; 1
+ 364:	90 e0       	ldi	r25, 0x00	; 0
+ 366:	a2 df       	rcall	.-188    	; 0x2ac <delayms>
+ 368:	fa cf       	rjmp	.-12     	; 0x35e <main+0x10>
+
+0000036a <_exit>:
+ 36a:	f8 94       	cli
+
+0000036c <__stop_program>:
+ 36c:	ff cf       	rjmp	.-2      	; 0x36c <__stop_program>
