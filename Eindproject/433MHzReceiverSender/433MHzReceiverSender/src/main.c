@@ -41,6 +41,7 @@ int main(void)
 	/* Set all PORTB to output*/
 	DDRA = 0xFF;
 	DDRB = 0xFF;
+	DDRC = 0x0;
 	DDRD = 0x0;
 	DDRE = 0xFF;
 	
@@ -48,18 +49,30 @@ int main(void)
 	PORTE = 0x0;
 
 	InitInterupts();
-
-	int i;
-	for(i = 0; i < 1000; i++)
-	{
-		send_timon_bytes(0b00011010);
-		delayms(10);
-	}
 	
 	/*Start of infinite loop*/
 	while(1)
 	{
 		//send_timon_bytes(0b11001101);
+
+		if(PINC & 0b10000000)
+		{
+			int k;
+			for(k = 0; k < 350; k++)
+			{
+				send_timon_bytes(0b00000111);
+				delayms(1);
+			}
+		}
+		else if(PINC & 0b01000000)
+		{
+			int k;
+			for(k = 0; k < 350; k++)
+			{
+				send_timon_bytes(0b11111110);
+				delayms(1);
+			}
+		}
 
 		delayms(1);
 	}
@@ -109,13 +122,8 @@ ISR( INT0_vect )
 			
 			if(startBitFound == 1 && edges == 8)
 			{
-				if(!firstTimeFound)
-				{
-					PORTE = receivedData;
-					PORTA = 0xFF;
-					firstTimeFound = 1;
-				}
-				
+				PORTE = receivedData;
+			
 				startBitFound = 0;
 				edges = 0;
 			}
@@ -138,7 +146,7 @@ ISR( INT0_vect )
 		else
 		{
 			lowTime = TCNT2;
-			if(lowTime < 5 || lowTime > 9)
+			if(lowTime < 6 || lowTime > 8)
 			{
 				startBitFound = 0;
 				edges = 0;
