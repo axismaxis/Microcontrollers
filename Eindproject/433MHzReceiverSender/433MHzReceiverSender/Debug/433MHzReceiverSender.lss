@@ -3,33 +3,33 @@
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  000003a0  2**0
+  0 .data         00000000  00800100  00800100  000003da  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         0000032c  00000000  00000000  00000074  2**1
+  1 .text         00000366  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000000f  00800100  00800100  000003a0  2**0
+  2 .bss          0000000f  00800100  00800100  000003da  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  000003a0  2**0
+  3 .comment      00000030  00000000  00000000  000003da  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000003d0  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000040c  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000050  00000000  00000000  0000040c  2**0
+  5 .debug_aranges 00000050  00000000  00000000  00000448  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00000ba5  00000000  00000000  0000045c  2**0
+  6 .debug_info   00000bbf  00000000  00000000  00000498  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000008f8  00000000  00000000  00001001  2**0
+  7 .debug_abbrev 000008e9  00000000  00000000  00001057  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000083f  00000000  00000000  000018f9  2**0
+  8 .debug_line   00000871  00000000  00000000  00001940  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000000f4  00000000  00000000  00002138  2**2
+  9 .debug_frame  000000f4  00000000  00000000  000021b4  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00011865  00000000  00000000  0000222c  2**0
+ 10 .debug_str    00011865  00000000  00000000  000022a8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000031f  00000000  00000000  00013a91  2**0
+ 11 .debug_loc    00000366  00000000  00000000  00013b0d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000040  00000000  00000000  00013db0  2**0
+ 12 .debug_ranges 00000040  00000000  00000000  00013e73  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_macro  0000037f  00000000  00000000  00013df0  2**0
+ 13 .debug_macro  0000037f  00000000  00000000  00013eb3  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -127,8 +127,8 @@ Disassembly of section .text:
   a2:	af 30       	cpi	r26, 0x0F	; 15
   a4:	b2 07       	cpc	r27, r18
   a6:	e1 f7       	brne	.-8      	; 0xa0 <.do_clear_bss_loop>
-  a8:	31 d1       	rcall	.+610    	; 0x30c <main>
-  aa:	3e c1       	rjmp	.+636    	; 0x328 <_exit>
+  a8:	47 d1       	rcall	.+654    	; 0x338 <main>
+  aa:	5b c1       	rjmp	.+694    	; 0x362 <_exit>
 
 000000ac <__bad_interrupt>:
   ac:	a9 cf       	rjmp	.-174    	; 0x0 <__vectors>
@@ -308,7 +308,7 @@ ISR( INT0_vect )
 		EICRA = 0x03;
  1d2:	83 e0       	ldi	r24, 0x03	; 3
  1d4:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <__TEXT_REGION_LENGTH__+0x7e006a>
- 1d8:	22 c0       	rjmp	.+68     	; 0x21e <__vector_1+0x170>
+ 1d8:	38 c0       	rjmp	.+112    	; 0x24a <__vector_1+0x19c>
 	}
 	else
 	{
@@ -317,7 +317,7 @@ ISR( INT0_vect )
  1da:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <startBitFound>
  1de:	90 91 03 01 	lds	r25, 0x0103	; 0x800103 <startBitFound+0x1>
  1e2:	89 2b       	or	r24, r25
- 1e4:	89 f4       	brne	.+34     	; 0x208 <__vector_1+0x15a>
+ 1e4:	91 f4       	brne	.+36     	; 0x20a <__vector_1+0x15c>
 		{
 			lowTime = TCNT2;
  1e6:	84 b5       	in	r24, 0x24	; 36
@@ -331,297 +331,338 @@ ISR( INT0_vect )
  1f4:	07 97       	sbiw	r24, 0x07	; 7
  1f6:	a1 05       	cpc	r26, r1
  1f8:	b1 05       	cpc	r27, r1
- 1fa:	30 f4       	brcc	.+12     	; 0x208 <__vector_1+0x15a>
+ 1fa:	e0 f4       	brcc	.+56     	; 0x234 <__vector_1+0x186>
 			{
 				startBitFound = 1;				
  1fc:	81 e0       	ldi	r24, 0x01	; 1
  1fe:	90 e0       	ldi	r25, 0x00	; 0
  200:	90 93 03 01 	sts	0x0103, r25	; 0x800103 <startBitFound+0x1>
  204:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <startBitFound>
+ 208:	15 c0       	rjmp	.+42     	; 0x234 <__vector_1+0x186>
+			}
+		}
+		else
+		{
+			lowTime = TCNT2;
+ 20a:	84 b5       	in	r24, 0x24	; 36
+ 20c:	90 e0       	ldi	r25, 0x00	; 0
+ 20e:	a0 e0       	ldi	r26, 0x00	; 0
+ 210:	b0 e0       	ldi	r27, 0x00	; 0
+			if(lowTime < 5 || lowTime > 9)
+ 212:	05 97       	sbiw	r24, 0x05	; 5
+ 214:	a1 09       	sbc	r26, r1
+ 216:	b1 09       	sbc	r27, r1
+ 218:	05 97       	sbiw	r24, 0x05	; 5
+ 21a:	a1 05       	cpc	r26, r1
+ 21c:	b1 05       	cpc	r27, r1
+ 21e:	50 f0       	brcs	.+20     	; 0x234 <__vector_1+0x186>
+			{
+				startBitFound = 0;
+ 220:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <startBitFound+0x1>
+ 224:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <startBitFound>
+				edges = 0;
+ 228:	10 92 06 01 	sts	0x0106, r1	; 0x800106 <edges+0x1>
+ 22c:	10 92 05 01 	sts	0x0105, r1	; 0x800105 <edges>
+				receivedData = 0;
+ 230:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <receivedData>
 			}
 		}
 
 		//Reset high timer
 		highTime = 0;
- 208:	10 92 07 01 	sts	0x0107, r1	; 0x800107 <highTime>
- 20c:	10 92 08 01 	sts	0x0108, r1	; 0x800108 <highTime+0x1>
- 210:	10 92 09 01 	sts	0x0109, r1	; 0x800109 <highTime+0x2>
- 214:	10 92 0a 01 	sts	0x010A, r1	; 0x80010a <highTime+0x3>
+ 234:	10 92 07 01 	sts	0x0107, r1	; 0x800107 <highTime>
+ 238:	10 92 08 01 	sts	0x0108, r1	; 0x800108 <highTime+0x1>
+ 23c:	10 92 09 01 	sts	0x0109, r1	; 0x800109 <highTime+0x2>
+ 240:	10 92 0a 01 	sts	0x010A, r1	; 0x80010a <highTime+0x3>
 
 		//Change interrupt mode to falling edge
 		EICRA = 0x02;
- 218:	82 e0       	ldi	r24, 0x02	; 2
- 21a:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <__TEXT_REGION_LENGTH__+0x7e006a>
+ 244:	82 e0       	ldi	r24, 0x02	; 2
+ 246:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <__TEXT_REGION_LENGTH__+0x7e006a>
 	}
 
 	
 	lowTime = 0;
- 21e:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <lowTime>
- 222:	10 92 0c 01 	sts	0x010C, r1	; 0x80010c <lowTime+0x1>
- 226:	10 92 0d 01 	sts	0x010D, r1	; 0x80010d <lowTime+0x2>
- 22a:	10 92 0e 01 	sts	0x010E, r1	; 0x80010e <lowTime+0x3>
+ 24a:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <lowTime>
+ 24e:	10 92 0c 01 	sts	0x010C, r1	; 0x80010c <lowTime+0x1>
+ 252:	10 92 0d 01 	sts	0x010D, r1	; 0x80010d <lowTime+0x2>
+ 256:	10 92 0e 01 	sts	0x010E, r1	; 0x80010e <lowTime+0x3>
 
 	//Reset timer to 0
 	TCNT2 = 0;
- 22e:	14 bc       	out	0x24, r1	; 36
+ 25a:	14 bc       	out	0x24, r1	; 36
 }
- 230:	bf 91       	pop	r27
- 232:	af 91       	pop	r26
- 234:	9f 91       	pop	r25
- 236:	8f 91       	pop	r24
- 238:	7f 91       	pop	r23
- 23a:	6f 91       	pop	r22
- 23c:	5f 91       	pop	r21
- 23e:	4f 91       	pop	r20
- 240:	3f 91       	pop	r19
- 242:	2f 91       	pop	r18
- 244:	0f 90       	pop	r0
- 246:	0f be       	out	0x3f, r0	; 63
- 248:	0f 90       	pop	r0
- 24a:	1f 90       	pop	r1
- 24c:	18 95       	reti
+ 25c:	bf 91       	pop	r27
+ 25e:	af 91       	pop	r26
+ 260:	9f 91       	pop	r25
+ 262:	8f 91       	pop	r24
+ 264:	7f 91       	pop	r23
+ 266:	6f 91       	pop	r22
+ 268:	5f 91       	pop	r21
+ 26a:	4f 91       	pop	r20
+ 26c:	3f 91       	pop	r19
+ 26e:	2f 91       	pop	r18
+ 270:	0f 90       	pop	r0
+ 272:	0f be       	out	0x3f, r0	; 63
+ 274:	0f 90       	pop	r0
+ 276:	1f 90       	pop	r1
+ 278:	18 95       	reti
 
-0000024e <InitInterupts>:
+0000027a <InitInterupts>:
 
 void InitInterupts(void)
 {
 	TCCR2 |= (1 << CS22);
- 24e:	85 b5       	in	r24, 0x25	; 37
- 250:	84 60       	ori	r24, 0x04	; 4
- 252:	85 bd       	out	0x25, r24	; 37
+ 27a:	85 b5       	in	r24, 0x25	; 37
+ 27c:	84 60       	ori	r24, 0x04	; 4
+ 27e:	85 bd       	out	0x25, r24	; 37
 	TCNT2 = 0;
- 254:	14 bc       	out	0x24, r1	; 36
+ 280:	14 bc       	out	0x24, r1	; 36
 
 	EICRA |= 0x03; // EX0, EX1: rising edge
- 256:	ea e6       	ldi	r30, 0x6A	; 106
- 258:	f0 e0       	ldi	r31, 0x00	; 0
- 25a:	80 81       	ld	r24, Z
- 25c:	83 60       	ori	r24, 0x03	; 3
- 25e:	80 83       	st	Z, r24
+ 282:	ea e6       	ldi	r30, 0x6A	; 106
+ 284:	f0 e0       	ldi	r31, 0x00	; 0
+ 286:	80 81       	ld	r24, Z
+ 288:	83 60       	ori	r24, 0x03	; 3
+ 28a:	80 83       	st	Z, r24
 	EIMSK |= 0x01; // enable intrpt EX0, EX1
- 260:	89 b7       	in	r24, 0x39	; 57
- 262:	81 60       	ori	r24, 0x01	; 1
- 264:	89 bf       	out	0x39, r24	; 57
+ 28c:	89 b7       	in	r24, 0x39	; 57
+ 28e:	81 60       	ori	r24, 0x01	; 1
+ 290:	89 bf       	out	0x39, r24	; 57
 	sei();
- 266:	78 94       	sei
- 268:	08 95       	ret
+ 292:	78 94       	sei
+ 294:	08 95       	ret
 
-0000026a <delayms>:
+00000296 <delayms>:
 }
 
 void delayms(int t)//delay in ms
 {
 	int i;
 	for(i=0;i<t;i++)
- 26a:	18 16       	cp	r1, r24
- 26c:	19 06       	cpc	r1, r25
- 26e:	6c f4       	brge	.+26     	; 0x28a <delayms+0x20>
- 270:	20 e0       	ldi	r18, 0x00	; 0
- 272:	30 e0       	ldi	r19, 0x00	; 0
+ 296:	18 16       	cp	r1, r24
+ 298:	19 06       	cpc	r1, r25
+ 29a:	6c f4       	brge	.+26     	; 0x2b6 <delayms+0x20>
+ 29c:	20 e0       	ldi	r18, 0x00	; 0
+ 29e:	30 e0       	ldi	r19, 0x00	; 0
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 274:	ef ec       	ldi	r30, 0xCF	; 207
- 276:	f7 e0       	ldi	r31, 0x07	; 7
- 278:	31 97       	sbiw	r30, 0x01	; 1
- 27a:	f1 f7       	brne	.-4      	; 0x278 <delayms+0xe>
- 27c:	00 c0       	rjmp	.+0      	; 0x27e <delayms+0x14>
- 27e:	00 00       	nop
- 280:	2f 5f       	subi	r18, 0xFF	; 255
- 282:	3f 4f       	sbci	r19, 0xFF	; 255
- 284:	82 17       	cp	r24, r18
- 286:	93 07       	cpc	r25, r19
- 288:	a9 f7       	brne	.-22     	; 0x274 <delayms+0xa>
- 28a:	08 95       	ret
+ 2a0:	ef ec       	ldi	r30, 0xCF	; 207
+ 2a2:	f7 e0       	ldi	r31, 0x07	; 7
+ 2a4:	31 97       	sbiw	r30, 0x01	; 1
+ 2a6:	f1 f7       	brne	.-4      	; 0x2a4 <delayms+0xe>
+ 2a8:	00 c0       	rjmp	.+0      	; 0x2aa <delayms+0x14>
+ 2aa:	00 00       	nop
+ 2ac:	2f 5f       	subi	r18, 0xFF	; 255
+ 2ae:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2b0:	82 17       	cp	r24, r18
+ 2b2:	93 07       	cpc	r25, r19
+ 2b4:	a9 f7       	brne	.-22     	; 0x2a0 <delayms+0xa>
+ 2b6:	08 95       	ret
 
-0000028c <delayus>:
+000002b8 <delayus>:
 
 
 void delayus(int t)//delay in us
 {
 	int i;
 	for(i=0;i<t;i++)
- 28c:	18 16       	cp	r1, r24
- 28e:	19 06       	cpc	r1, r25
- 290:	5c f4       	brge	.+22     	; 0x2a8 <delayus+0x1c>
- 292:	20 e0       	ldi	r18, 0x00	; 0
- 294:	30 e0       	ldi	r19, 0x00	; 0
+ 2b8:	18 16       	cp	r1, r24
+ 2ba:	19 06       	cpc	r1, r25
+ 2bc:	5c f4       	brge	.+22     	; 0x2d4 <delayus+0x1c>
+ 2be:	20 e0       	ldi	r18, 0x00	; 0
+ 2c0:	30 e0       	ldi	r19, 0x00	; 0
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 296:	42 e0       	ldi	r20, 0x02	; 2
- 298:	4a 95       	dec	r20
- 29a:	f1 f7       	brne	.-4      	; 0x298 <delayus+0xc>
- 29c:	00 c0       	rjmp	.+0      	; 0x29e <delayus+0x12>
- 29e:	2f 5f       	subi	r18, 0xFF	; 255
- 2a0:	3f 4f       	sbci	r19, 0xFF	; 255
- 2a2:	82 17       	cp	r24, r18
- 2a4:	93 07       	cpc	r25, r19
- 2a6:	b9 f7       	brne	.-18     	; 0x296 <delayus+0xa>
- 2a8:	08 95       	ret
+ 2c2:	42 e0       	ldi	r20, 0x02	; 2
+ 2c4:	4a 95       	dec	r20
+ 2c6:	f1 f7       	brne	.-4      	; 0x2c4 <delayus+0xc>
+ 2c8:	00 c0       	rjmp	.+0      	; 0x2ca <delayus+0x12>
+ 2ca:	2f 5f       	subi	r18, 0xFF	; 255
+ 2cc:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2ce:	82 17       	cp	r24, r18
+ 2d0:	93 07       	cpc	r25, r19
+ 2d2:	b9 f7       	brne	.-18     	; 0x2c2 <delayus+0xa>
+ 2d4:	08 95       	ret
 
-000002aa <send_timon_bytes>:
+000002d6 <send_timon_bytes>:
 	}
 }
 
 //send_timon_bytes(0b11001111);
 void send_timon_bytes(unsigned char data)
 {
- 2aa:	df 92       	push	r13
- 2ac:	ef 92       	push	r14
- 2ae:	ff 92       	push	r15
- 2b0:	0f 93       	push	r16
- 2b2:	1f 93       	push	r17
- 2b4:	cf 93       	push	r28
- 2b6:	df 93       	push	r29
- 2b8:	d8 2f       	mov	r29, r24
+ 2d6:	df 92       	push	r13
+ 2d8:	ef 92       	push	r14
+ 2da:	ff 92       	push	r15
+ 2dc:	0f 93       	push	r16
+ 2de:	1f 93       	push	r17
+ 2e0:	cf 93       	push	r28
+ 2e2:	df 93       	push	r29
+ 2e4:	d8 2f       	mov	r29, r24
 	unsigned char tbit;
 	int delayTime = 0;
 
 	// make 250uS start bit first
 	PORTB = 0x0;
- 2ba:	18 ba       	out	0x18, r1	; 24
+ 2e6:	18 ba       	out	0x18, r1	; 24
 	delayus(100);
- 2bc:	84 e6       	ldi	r24, 0x64	; 100
- 2be:	90 e0       	ldi	r25, 0x00	; 0
- 2c0:	e5 df       	rcall	.-54     	; 0x28c <delayus>
- 2c2:	c8 e0       	ldi	r28, 0x08	; 8
+ 2e8:	84 e6       	ldi	r24, 0x64	; 100
+ 2ea:	90 e0       	ldi	r25, 0x00	; 0
+ 2ec:	e5 df       	rcall	.-54     	; 0x2b8 <delayus>
+ 2ee:	c8 e0       	ldi	r28, 0x08	; 8
 
 	// now loop and send 8 bits
 	for(tbit=0; tbit<8; tbit++)
 	{
 		delayTime = 0;
 		PORTB = 0xFF;
- 2c4:	1f ef       	ldi	r17, 0xFF	; 255
+ 2f0:	1f ef       	ldi	r17, 0xFF	; 255
 	//delayus(500);     
 
 	// now loop and send 8 bits
 	for(tbit=0; tbit<8; tbit++)
 	{
 		delayTime = 0;
- 2c6:	f1 2c       	mov	r15, r1
- 2c8:	00 e0       	ldi	r16, 0x00	; 0
+ 2f2:	f1 2c       	mov	r15, r1
+ 2f4:	00 e0       	ldi	r16, 0x00	; 0
 		PORTB = 0xFF;
 		if((data & 0b10000000))
 		{
 			delayTime += 100;
- 2ca:	0f 2e       	mov	r0, r31
- 2cc:	f4 e6       	ldi	r31, 0x64	; 100
- 2ce:	df 2e       	mov	r13, r31
- 2d0:	f0 2d       	mov	r31, r0
- 2d2:	e1 2c       	mov	r14, r1
+ 2f6:	0f 2e       	mov	r0, r31
+ 2f8:	f4 e6       	ldi	r31, 0x64	; 100
+ 2fa:	df 2e       	mov	r13, r31
+ 2fc:	f0 2d       	mov	r31, r0
+ 2fe:	e1 2c       	mov	r14, r1
 
 	// now loop and send 8 bits
 	for(tbit=0; tbit<8; tbit++)
 	{
 		delayTime = 0;
 		PORTB = 0xFF;
- 2d4:	18 bb       	out	0x18, r17	; 24
+ 300:	18 bb       	out	0x18, r17	; 24
 		if((data & 0b10000000))
- 2d6:	dd 23       	and	r29, r29
- 2d8:	1c f4       	brge	.+6      	; 0x2e0 <send_timon_bytes+0x36>
+ 302:	dd 23       	and	r29, r29
+ 304:	1c f4       	brge	.+6      	; 0x30c <send_timon_bytes+0x36>
 		{
 			delayTime += 100;
- 2da:	8d 2d       	mov	r24, r13
- 2dc:	9e 2d       	mov	r25, r14
- 2de:	02 c0       	rjmp	.+4      	; 0x2e4 <send_timon_bytes+0x3a>
+ 306:	8d 2d       	mov	r24, r13
+ 308:	9e 2d       	mov	r25, r14
+ 30a:	02 c0       	rjmp	.+4      	; 0x310 <send_timon_bytes+0x3a>
 	//delayus(500);     
 
 	// now loop and send 8 bits
 	for(tbit=0; tbit<8; tbit++)
 	{
 		delayTime = 0;
- 2e0:	8f 2d       	mov	r24, r15
- 2e2:	90 2f       	mov	r25, r16
+ 30c:	8f 2d       	mov	r24, r15
+ 30e:	90 2f       	mov	r25, r16
 		if((data & 0b10000000))
 		{
 			delayTime += 100;
 		}
 		delayTime += 100;
 		delayus(delayTime);
- 2e4:	8c 59       	subi	r24, 0x9C	; 156
- 2e6:	9f 4f       	sbci	r25, 0xFF	; 255
- 2e8:	d1 df       	rcall	.-94     	; 0x28c <delayus>
+ 310:	8c 59       	subi	r24, 0x9C	; 156
+ 312:	9f 4f       	sbci	r25, 0xFF	; 255
+ 314:	d1 df       	rcall	.-94     	; 0x2b8 <delayus>
 
 		PORTB = 0x0;
 		delayus(50);
- 2ea:	18 ba       	out	0x18, r1	; 24
- 2ec:	82 e3       	ldi	r24, 0x32	; 50
- 2ee:	90 e0       	ldi	r25, 0x00	; 0
+ 316:	18 ba       	out	0x18, r1	; 24
+ 318:	82 e3       	ldi	r24, 0x32	; 50
+ 31a:	90 e0       	ldi	r25, 0x00	; 0
 
 
 		data = data << 1; 
- 2f0:	cd df       	rcall	.-102    	; 0x28c <delayus>
- 2f2:	dd 0f       	add	r29, r29
+ 31c:	cd df       	rcall	.-102    	; 0x2b8 <delayus>
+ 31e:	dd 0f       	add	r29, r29
 	      
 	//PORTB = 0x00;
 	//delayus(500);     
 
 	// now loop and send 8 bits
 	for(tbit=0; tbit<8; tbit++)
- 2f4:	c1 50       	subi	r28, 0x01	; 1
+ 320:	c1 50       	subi	r28, 0x01	; 1
 		delayus(50);
 
 
 		data = data << 1; 
 	}
 	PORTB = 0xFF;
- 2f6:	71 f7       	brne	.-36     	; 0x2d4 <send_timon_bytes+0x2a>
- 2f8:	8f ef       	ldi	r24, 0xFF	; 255
+ 322:	71 f7       	brne	.-36     	; 0x300 <send_timon_bytes+0x2a>
+ 324:	8f ef       	ldi	r24, 0xFF	; 255
 }
- 2fa:	88 bb       	out	0x18, r24	; 24
- 2fc:	df 91       	pop	r29
- 2fe:	cf 91       	pop	r28
- 300:	1f 91       	pop	r17
- 302:	0f 91       	pop	r16
- 304:	ff 90       	pop	r15
- 306:	ef 90       	pop	r14
- 308:	df 90       	pop	r13
- 30a:	08 95       	ret
+ 326:	88 bb       	out	0x18, r24	; 24
+ 328:	df 91       	pop	r29
+ 32a:	cf 91       	pop	r28
+ 32c:	1f 91       	pop	r17
+ 32e:	0f 91       	pop	r16
+ 330:	ff 90       	pop	r15
+ 332:	ef 90       	pop	r14
+ 334:	df 90       	pop	r13
+ 336:	08 95       	ret
 
-0000030c <main>:
+00000338 <main>:
 void InitInterupts(void);
 
 int main(void)
 {
 	/* Set all PORTB to output*/
 	DDRA = 0xFF;
- 30c:	8f ef       	ldi	r24, 0xFF	; 255
- 30e:	8a bb       	out	0x1a, r24	; 26
+ 338:	8f ef       	ldi	r24, 0xFF	; 255
+ 33a:	8a bb       	out	0x1a, r24	; 26
 	DDRB = 0xFF;
- 310:	87 bb       	out	0x17, r24	; 23
+ 33c:	87 bb       	out	0x17, r24	; 23
 	DDRD = 0x0;
- 312:	11 ba       	out	0x11, r1	; 17
+ 33e:	11 ba       	out	0x11, r1	; 17
 	DDRE = 0xFF;
- 314:	82 b9       	out	0x02, r24	; 2
+ 340:	82 b9       	out	0x02, r24	; 2
 	
 	PORTA = 0x0;
- 316:	1b ba       	out	0x1b, r1	; 27
-	}
-	
+ 342:	1b ba       	out	0x1b, r1	; 27
+	PORTE = 0x0;
+
+	InitInterupts();
+ 344:	13 b8       	out	0x03, r1	; 3
+ 346:	99 df       	rcall	.-206    	; 0x27a <InitInterupts>
+
+	int i;
+	for(i = 0; i < 1000; i++)
+	{
+		send_timon_bytes(0b00011010);
+ 348:	c8 ee       	ldi	r28, 0xE8	; 232
+		delayms(10);
+ 34a:	d3 e0       	ldi	r29, 0x03	; 3
+ 34c:	8a e1       	ldi	r24, 0x1A	; 26
+ 34e:	c3 df       	rcall	.-122    	; 0x2d6 <send_timon_bytes>
 	/*Start of infinite loop*/
 	while(1)
 	{
-		send_timon_bytes(0b11001101);
- 318:	13 b8       	out	0x03, r1	; 3
+		//send_timon_bytes(0b11001101);
 
 		delayms(1);
- 31a:	99 df       	rcall	.-206    	; 0x24e <InitInterupts>
- 31c:	8d ec       	ldi	r24, 0xCD	; 205
- 31e:	c5 df       	rcall	.-118    	; 0x2aa <send_timon_bytes>
- 320:	81 e0       	ldi	r24, 0x01	; 1
- 322:	90 e0       	ldi	r25, 0x00	; 0
- 324:	a2 df       	rcall	.-188    	; 0x26a <delayms>
- 326:	fa cf       	rjmp	.-12     	; 0x31c <main+0x10>
+ 350:	8a e0       	ldi	r24, 0x0A	; 10
+ 352:	90 e0       	ldi	r25, 0x00	; 0
+ 354:	a0 df       	rcall	.-192    	; 0x296 <delayms>
+ 356:	21 97       	sbiw	r28, 0x01	; 1
+ 358:	c9 f7       	brne	.-14     	; 0x34c <main+0x14>
+ 35a:	81 e0       	ldi	r24, 0x01	; 1
+ 35c:	90 e0       	ldi	r25, 0x00	; 0
+ 35e:	9b df       	rcall	.-202    	; 0x296 <delayms>
+ 360:	fc cf       	rjmp	.-8      	; 0x35a <main+0x22>
 
-00000328 <_exit>:
- 328:	f8 94       	cli
+00000362 <_exit>:
+ 362:	f8 94       	cli
 
-0000032a <__stop_program>:
- 32a:	ff cf       	rjmp	.-2      	; 0x32a <__stop_program>
+00000364 <__stop_program>:
+ 364:	ff cf       	rjmp	.-2      	; 0x364 <__stop_program>

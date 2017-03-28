@@ -50,16 +50,16 @@ int main(void)
 	InitInterupts();
 
 	int i;
-	for(i = 0; i < 10; i++)
+	for(i = 0; i < 1000; i++)
 	{
-		//send_timon_bytes(0b11001101);
-		//delayms(5);
+		send_timon_bytes(0b00011010);
+		delayms(10);
 	}
 	
 	/*Start of infinite loop*/
 	while(1)
 	{
-		send_timon_bytes(0b11001101);
+		//send_timon_bytes(0b11001101);
 
 		delayms(1);
 	}
@@ -133,6 +133,16 @@ ISR( INT0_vect )
 			if(lowTime > 6 && lowTime < 14)
 			{
 				startBitFound = 1;				
+			}
+		}
+		else
+		{
+			lowTime = TCNT2;
+			if(lowTime < 5 || lowTime > 9)
+			{
+				startBitFound = 0;
+				edges = 0;
+				receivedData = 0;
 			}
 		}
 
