@@ -71,7 +71,55 @@ ISR( INT0_vect )
 	if(EICRA == 0x02)
 	{
 		//On falling edge
-		highTime = TCNT2;
+		if(startBitFound && edges < 9)
+		{
+			highTime = TCNT2;
+			if(highTime > 1 && highTime < 5)
+			{
+				if(receivedData == 0)
+				{
+					//Data should be 0
+				}
+				else
+				{
+					receivedData = receivedData << 1;
+				}
+				edges++;
+			}
+			else if(highTime > 5 && highTime < 9)
+			{
+				if(receivedData == 0)
+				{
+					receivedData = 1;
+				}
+				else
+				{
+					receivedData = receivedData << 1;
+					receivedData |= 1;
+				}
+				edges++;
+			}
+			else
+			{
+				//Corrupt bit found
+				receivedData = 0;
+				startBitFound = 0;
+				edges = 0;
+			}
+			
+			if(startBitFound == 1 && edges == 8)
+			{
+				if(!firstTimeFound)
+				{
+					PORTE = receivedData;
+					PORTA = 0xFF;
+					firstTimeFound = 1;
+				}
+				
+				startBitFound = 0;
+				edges = 0;
+			}
+		}
 
 		//Change interrupt mode to rising edge
 		EICRA = 0x03;
@@ -87,68 +135,6 @@ ISR( INT0_vect )
 				startBitFound = 1;				
 			}
 		}
-		else
-		{
-			lowTime = TCNT2;
-			if(lowTime > 0 && lowTime < 5)
-			{
-				if(startBitFound && edges < 9)
-				{
-					highTime = TCNT2;
-					if(highTime > 1 && highTime < 5)
-					{
-						if(receivedData == 0)
-						{
-							//Data should be 0
-						}
-						else
-						{
-							receivedData = receivedData << 1;
-						}
-						edges++;
-					}
-					else if(highTime > 5 && highTime < 9)
-					{
-						if(receivedData == 0)
-						{
-							receivedData = 1;
-						}
-						else
-						{
-							receivedData = receivedData << 1;
-							receivedData |= 1;
-						}
-						edges++;
-					}
-					else
-					{
-						//Corrupt bit found
-						receivedData = 0;
-						startBitFound = 0;
-						edges = 0;
-					}
-					
-					if(startBitFound == 1 && edges == 8)
-					{
-						if(!firstTimeFound)
-						{
-							PORTE = receivedData;
-							PORTA = 0xFF;
-							firstTimeFound = 1;
-						}
-						
-						startBitFound = 0;
-						edges = 0;
-					}
-				}
-			}
-			else
-			{
-				startBitFound = 0;
-				edges = 0;
-				receivedData = 0;
-			}
-		}
 
 		//Reset high timer
 		highTime = 0;
@@ -157,7 +143,7 @@ ISR( INT0_vect )
 		EICRA = 0x02;
 	}
 
-	//Reset low timer
+	
 	lowTime = 0;
 
 	//Reset timer to 0
