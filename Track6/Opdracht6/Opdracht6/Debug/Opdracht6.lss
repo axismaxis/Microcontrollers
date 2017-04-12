@@ -1,0 +1,6 @@
+
+AVRASM ver. 2.2.6  D:\school\jaar 2\periode 3\Microcontrolers\Code\Track6\Opdracht6\Opdracht6\main.asm Wed Apr 12 16:17:04 2017
+
+[builtin](2): Including file 'D:/instals\AVR\Atmel Studio 7\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m128def.inc'
+D:\school\jaar 2\periode 3\Microcontrolers\Code\Track6\Opdracht6\Opdracht6\main.asm(16): error: shl: Unknown instruction or macro
+D:\school\jaar 2\periode 3\Microcontrolers\Code\Track6\Opdracht6\Opdracht6\main.asm(16): error: syntax error, unexpected ',', expecting ':'

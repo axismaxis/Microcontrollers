@@ -1,0 +1,29 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.6</VERSION>
+ <DEVICE>"ATmega128"</DEVICE>
+ <WORKING_DIR>D:\school\jaar 2\periode 3\Microcontrolers\Code\Track6\Opdracht1\Opdracht1\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/instals\AVR\Atmel Studio 7\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc</DIR>
+  <DIR>D:\instals\AVR\Atmel Studio 7\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\school\jaar 2\periode 3\Microcontrolers\Code\Track6\Opdracht1\Opdracht1\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/instals\AVR\Atmel Studio 7\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m128def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\school\jaar 2\periode 3\Microcontrolers\Code\Track6\Opdracht1\Opdracht1\Debug\Opdracht1.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Opdracht1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Opdracht1.map</FILE>
+  <FILE>Opdracht1.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>D:\school\jaar 2\periode 3\Microcontrolers\Code\Track6\Opdracht1\Opdracht1\main.asm</FILE><LINE>9</LINE></start>
+  <write_loop><FILE>D:\school\jaar 2\periode 3\Microcontrolers\Code\Track6\Opdracht1\Opdracht1\main.asm</FILE><LINE>15</LINE></write_loop>
+  <end><FILE>D:\school\jaar 2\periode 3\Microcontrolers\Code\Track6\Opdracht1\Opdracht1\main.asm</FILE><LINE>20</LINE></end>
+ </LABELS>
+</ASSEMBLER_INFO>
